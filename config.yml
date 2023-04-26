@@ -1,0 +1,47 @@
+hello:
+- test
+packs:
+  behavior:
+    format_version: 2
+    header:
+      name: map-template
+      description: 'map-template: Resource Pack'
+      version:
+      - 1
+      - 0
+      - 0
+      min_engine_version:
+      - 1
+      - 16
+      - 0
+      uuid: d30895d1-2b83-44d9-bc5b-e61e29672d87
+    modules:
+    - type: data
+      uuid: 744be379-01bf-48fb-8995-a0fe5640178f
+      version:
+      - 1
+      - 0
+      - 0
+    dependencies:
+    - &ref_0
+      format_version: 2
+      header:
+        name: map-template
+        description: 'map-template: Resource Pack'
+        version:
+        - 1
+        - 0
+        - 0
+        min_engine_version:
+        - 1
+        - 16
+        - 0
+        uuid: da944be5-8d4b-42c2-9882-84c1d428d683
+      modules:
+      - type: resources
+        uuid: 36909535-cf7c-414a-8df4-23950696667c
+        version:
+        - 1
+        - 0
+        - 0
+  resource: *ref_0

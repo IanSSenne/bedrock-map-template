@@ -1,0 +1,23 @@
+{
+  "name": "map-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
+    "chokidar": "^3.5.3",
+    "esbuild": "^0.17.18",
+    "esbuild-plugin-node-externals": "^1.0.1",
+    "js-yaml": "^4.1.0",
+    "typescript": "^5.0.4",
+    "@types/node": "^18.16.0",
+    "@types/prompts": "^2.4.4",
+    "prompts": "^2.4.2",
+    "shaderkit": "^0.1.9"
+  },
+  "scripts": {
+    "run-script": "node ./scripts/run-script.js",
+    "build": "yarn run-script build",
+    "dev": "yarn run-script dev"
+  }
+}
