@@ -10,38 +10,33 @@ packs:
       - 1
       - 0
       - 0
-      min_engine_version:
-      - 1
-      - 16
-      - 0
-      uuid: d30895d1-2b83-44d9-bc5b-e61e29672d87
+      min_engine_version: [1, 19, 50]
+      uuid: 89d1b3c6-3fd9-4789-952a-70e5c3077d9c
     modules:
     - type: data
-      uuid: 744be379-01bf-48fb-8995-a0fe5640178f
+      uuid: a392c333-d298-4cd0-8caa-13a069234d25
       version:
       - 1
       - 0
       - 0
     dependencies:
-    - &ref_0
-      format_version: 2
-      header:
-        name: map-template
-        description: 'map-template: Resource Pack'
-        version:
-        - 1
-        - 0
-        - 0
-        min_engine_version:
-        - 1
-        - 16
-        - 0
-        uuid: da944be5-8d4b-42c2-9882-84c1d428d683
-      modules:
-      - type: resources
-        uuid: 36909535-cf7c-414a-8df4-23950696667c
-        version:
-        - 1
-        - 0
-        - 0
-  resource: *ref_0
+    - uuid: 6fcb47c3-50f6-41b7-a75d-bb94f80847e0
+      version: &ref_0
+      - 1
+      - 0
+      - 0
+  resource:
+    format_version: 2
+    header:
+      name: map-template
+      description: 'map-template: Resource Pack'
+      version: *ref_0
+      min_engine_version: [1, 19, 50]
+      uuid: 6fcb47c3-50f6-41b7-a75d-bb94f80847e0
+    modules:
+    - type: resources
+      uuid: b383df33-a2b3-446e-b2e7-cdba15ab4066
+      version:
+      - 1
+      - 0
+      - 0

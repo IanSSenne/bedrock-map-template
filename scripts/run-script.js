@@ -18,15 +18,6 @@ async function runScript(scriptPath, callback) {
     "scripts",
     path.basename(scriptPath) + ".js"
   );
-  let clean = false;
-  let timeoutId;
-  function cleanup() {
-    if (temp && !clean) {
-      clean = true;
-      // fs.unlinkSync(temp);
-      clearTimeout(timeoutId);
-    }
-  }
   await esbuild.build({
     entryPoints: [path.resolve(__dirname, scriptPath)],
     outfile: temp,
@@ -41,15 +32,10 @@ async function runScript(scriptPath, callback) {
   console.time("Running process...");
   let process = cp.fork(temp);
 
-  timeoutId = setTimeout(() => {
-    cleanup();
-  }, 1000);
-
   // listen for errors as they may prevent the exit event from firing
   process.on("error", function (err) {
     if (invoked) return;
     invoked = true;
-    cleanup();
     callback(err);
     console.timeEnd("Running process...");
   });
@@ -58,7 +44,6 @@ async function runScript(scriptPath, callback) {
     if (invoked) return;
     invoked = true;
     const err = code === 0 ? null : new Error("exit code " + code);
-    cleanup();
     callback(err);
     console.timeEnd("Running process...");
   });

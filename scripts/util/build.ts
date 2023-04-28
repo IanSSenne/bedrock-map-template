@@ -130,6 +130,7 @@ export const build = async (mode = "dev") => {
     extras: [
       resolve(getRootPath(), "src/**"),
       resolve(getRootPath(), "pack/**"),
+      resolve(getRootPath(), "resources/**"),
     ],
   });
 };

@@ -1,10 +1,11 @@
 import { mkdirSync, writeFileSync } from "fs";
 import { __fs_env, __lib_env } from "./config";
-import { dirname, resolve } from "path";
+import { dirname, join, resolve } from "path";
 
 const baseLocations = {
   bp: __fs_env.packs.behavior.target,
   rp: __fs_env.packs.resource.target,
+  debug: join(process.cwd(), "debug"),
 };
 const knownDirs = new Set<string>();
 function ensureDirectory(dir: string) {
@@ -13,7 +14,7 @@ function ensureDirectory(dir: string) {
   mkdirSync(dir, { recursive: true });
 }
 export function write(
-  target: `${"bp" | "rp"}:${string}`,
+  target: `${keyof typeof baseLocations}:${string}`,
   contents: string | NodeJS.ArrayBufferView
 ) {
   const [pack, path] = target.split(":");
@@ -23,7 +24,10 @@ export function write(
   ensureDirectory(dirname(resolved));
   writeFileSync(resolved, contents);
 }
-write.json = (target: `${"bp" | "rp"}:${string}`, contents: any) => {
+write.json = (
+  target: `${keyof typeof baseLocations}:${string}`,
+  contents: any
+) => {
   write(
     target,
     __lib_env.mode === "dev"

@@ -46,7 +46,12 @@ config.packs = {
         version: [1, 0, 0],
       },
     ],
-    dependencies: [rp],
+    dependencies: [
+      {
+        uuid: rp.header.uuid,
+        version: rp.header.version,
+      },
+    ],
   },
 };
 writeFileSync(configPath, yaml.dump(config, { noArrayIndent: true }));
